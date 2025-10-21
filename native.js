@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Earth Lens — From Satellite Radio to Earth Insights</title>
+  <meta name="description" content="Earth Lens converts NOAA/WebSDR satellite audio into enhanced Earth imagery. Demo images, docs, and researcher resources." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#06b6d4;--accent-2:#10b981;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:linear-gradient(180deg,#071026 0%,#07162a 100%); color:#e6eef8; -webkit-font-smoothing:antialiased}
+    header{padding:28px 24px; display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700}
+    .nav{display:flex; gap:16px; align-items:center}
+    .nav a{color:var(--muted); text-decoration:none; font-size:14px}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:24px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);border-radius:12px}
+    h1{font-size:28px;margin:0 0 12px 0}
+    p.lead{color:var(--muted); margin:0 0 18px 0}
+    .cta{display:flex;gap:12px}
+    .btn{background:var(--accent);border:none;padding:10px 14px;border-radius:8px;color:#021427;font-weight:600;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
+    .card{background:var(--card); padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .img{width:100%;height:180px;object-fit:cover;border-radius:8px;border:1px solid var(--glass)}
+    section{margin-top:22px}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    pre{background:rgba(255,255,255,0.03); padding:10px;border-radius:8px;overflow:auto;color:#dff3ff;font-size:13px}
+    footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted)}
+    .two-col{display:grid;grid-template-columns:1fr 340px;gap:18px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);font-size:13px}
+    .small{font-size:13px;color:var(--muted)}
+    /* responsive */
+    @media(max-width:900px){.hero{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <div class="logo">EL</div>
+      <div>
+        <div style="font-weight:700">Earth Lens</div>
+        <div class="small">Satellite audio → Enhanced Earth imagery</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#demo">Demo</a>
+      <a href="#docs">Docs</a>
+      <a href="#vision">Vision</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div>
+        <h1>Earth Lens — From Satellite Radio to Actionable Earth Images</h1>
+        <p class="lead">We convert NOAA/WebSDR audio streams into rasterized, enhanced Earth images. No ground station needed — just open-source tools and smart signal & image processing.</p>
+        <div class="cta">
+          <button class="btn" id="cta-demo">Explore Demo Images</button>
+          <button class="btn ghost" id="cta-try">Join as Researcher</button>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+          <div class="chip">MVP: Audio → Image pipeline</div>
+          <div class="chip">Filters: Gaussian / Median</div>
+          <div class="chip">Roadmap: UNet, SRGAN</div>
+        </div>
+
+        <div style="margin-top:20px">
+          <h3 style="margin:0 0 8px 0">Quick facts</h3>
+          <div class="small">We demodulate FM APT signals, detect sync pulses, rasterize lines into images, and apply image enhancement. MATLAB/Python snippets are available in Docs.</div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="font-weight:700">Live Demo (sample)</div>
+          <div class="gallery">
+            <img class="img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='100%' height='100%' fill='%230c1520'/><text x='50%' y='50%' fill='%238aa6b8' font-family='Arial' font-size='18' text-anchor='middle'>Raw audio → raster image</text></svg>" alt="raw">
+            <img class="img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='100%' height='100%' fill='%23121b27'/><text x='50%' y='50%' fill='%23c3f0e6' font-family='Arial' font-size='18' text-anchor='middle'>After filters (Gaussian / Median)</text></svg>" alt="processed">
+          </div>
+          <div style="font-size:13px;color:var(--muted)">Note: These are sample images — upload your .wav or paste a WebSDR link when the dashboard is live.</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="demo">
+      <h2 style="margin:6px 0">Demo Gallery</h2>
+      <div class="two-col">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:700">Before & After</div>
+            <div class="small">Compare raw raster vs enhanced</div>
+          </div>
+          <div style="margin-top:12px" class="gallery">
+            <img class="img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='100%' height='100%' fill='%230b1a17'/><text x='50%' y='50%' fill='%2393c2b9' font-family='Arial' font-size='18' text-anchor='middle'>NOAA CH A (raw)</text></svg>" alt="noaa-a">
+            <img class="img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='100%' height='100%' fill='%231b2430'/><text x='50%' y='50%' fill='%23c6e9f0' font-family='Arial' font-size='18' text-anchor='middle'>After Gaussian + Median</text></svg>" alt="noaa-b">
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button class="btn" onclick="openModal('process')">Process my .wav (Placeholder)</button>
+            <button class="btn ghost" onclick="openModal('websdr')">Paste WebSDR Link</button>
+          </div>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">Note: This MVP page demonstrates decoded outputs. The full dashboard (upload, queue, AI profiles) is coming soon. See Docs for processing details.</div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0">Snapshot: How it works</h3>
+          <ol style="color:var(--muted);padding-left:18px;margin-top:10px">
+            <li>Capture NOAA APT FM audio from WebSDR.</li>
+            <li>Demodulate (Hilbert / quadrature) & detect sync pulses.</li>
+            <li>Rasterize audio lines into grayscale image channels.</li>
+            <li>Enhance with Gaussian/Median filters; later: UNet/SRGAN.</li>
+            <li>Provide downloads & analytics (NDVI, cloud %).</li>
+          </ol>
+
+          <div style="margin-top:10px"><strong>MVP tech stack:</strong>
+            <div class="small">Wix (frontend) + Python worker (FastAPI) for processing. Storage: S3 / signed URLs. AI: PyTorch for SR models (future).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="docs">
+      <h2 style="margin:6px 0">Docs & Code Snippets</h2>
+      <div class="card">
+        <div class="grid-3">
+          <div>
+            <h4 style="margin:0">Signal → Audio</h4>
+            <p class="small">Use WebSDR to record NOAA APT FM audio (.wav). Example: 137.1 MHz. Libraries: GNU Radio, rtl_fm (if using local SDR).</p>
+          </div>
+          <div>
+            <h4 style="margin:0">Demodulation</h4>
+            <p class="small">Quadrature demod or Hilbert transform. In MATLAB: use <code>hilbert()</code> then unwrap phase or obtain instantaneous amplitude.</p>
+          </div>
+          <div>
+            <h4 style="margin:0">Rasterization</h4>
+            <p class="small">Detect sync pulses using cross-correlation; slice the audio stream into fixed-length lines and map amplitude to pixel intensity.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <h4>MATLAB snippet (demodulation + rasterization)</h4>
+          <pre>y = audioread('noaa.wav');
+% approximate FM demod via Hilbert
+z = hilbert(y);
+inst_phase = unwrap(angle(z));
+inst_freq = diff(inst_phase);
+% sync detection (simplified)
+% correlate with a known sync waveform or threshold peaks
+% convert lines to image matrix and map to 0-255
+</pre>
+        </div>
+
+        <div style="margin-top:12px">
+          <h4>Python snippet (basic filtering)</h4>
+          <pre>import numpy as np
+import cv2
+img = cv2.imread('raster.png',0)
+img = cv2.medianBlur(img,3)
+img = cv2.GaussianBlur(img,(5,5),0)
+cv2.imwrite('enhanced.png',img)</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision">
+      <h2 style="margin:6px 0">Vision & Roadmap</h2>
+      <div class="card">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div><strong>Next (3 months):</strong> Dashboard MVP: upload, job queue, history, download results.</div>
+          <div><strong>Mid (6–12 months):</strong> Add AI models (UNet segmentation, SRGAN super-resolution), NDVI, cloud masks.</div>
+          <div><strong>Long term:</strong> API access, government / NGO pilots, GeoTIFF exports, GIS integrations.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2 style="margin:6px 0">Team</h2>
+      <div class="card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="width:64px;height:64px;background:rgba(255,255,255,0.03);border-radius:8px;display:flex;align-items:center;justify-content:center">A</div>
+          <div>
+            <div style="font-weight:700">Team PRANUTAN — Earth Lens</div>
+            <div class="small">Student innovators — signal processing, remote sensing, and full-stack vision. Invited to SIH 2025.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 style="margin:6px 0">Contact</h2>
+      <div class="card">
+        <div style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-weight:700">Get in touch</div>
+            <div class="small">Interested to collaborate, pilot, or give feedback? Drop a message.</div>
+          </div>
+          <div>
+            <input id="contactName" placeholder="Your name" style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-right:8px">
+            <input id="contactEmail" placeholder="Email" style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-right:8px">
+            <button class="btn" onclick="sendContact()">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built at Smart India Hackathon 2025 • Earth Lens • Demo & Docs
+    </footer>
+  </main>
+
+  <!-- Simple modal and JS placeholders to integrate with external worker -->
+  <div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center">
+    <div style="width:520px;max-width:92%;background:var(--card);padding:18px;border-radius:10px">
+      <div id="modalContent"></div>
+      <div style="margin-top:12px;text-align:right">
+        <button class="btn ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Basic interactions and placeholders
+    document.getElementById('cta-demo').addEventListener('click',()=>{location.hash='#demo';window.scrollTo({top:document.getElementById('demo').offsetTop-40,behavior:'smooth'})});
+    document.getElementById('cta-try').addEventListener('click',()=>{openModal('research')});
+
+    function openModal(mode){
+      const modal = document.getElementById('modal');
+      const content = document.getElementById('modalContent');
+      if(mode==='process'){
+        content.innerHTML = `<h3 style=\"margin:0 0 6px 0\">Upload .wav (MVP placeholder)</h3>
+          <p class=\"small\">This is a frontend placeholder. For the hackathon demo we process offline and show results. To enable live processing, connect this UI to the external worker (see Docs/API spec).</p>
+          <input type=\"file\" id=\"wavfile\" accept=\"audio/wav\" style=\"margin-top:8px\">`;
+      } else if(mode==='websdr'){
+        content.innerHTML = `<h3 style=\"margin:0 0 6px 0\">Paste WebSDR URL</h3>
+          <p class=\"small\">Example: https://websdr.example/?freq=137100000</p>
+          <input id=\"websdrurl\" placeholder=\"Paste WebSDR link here\" style=\"width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit\">`;
+      } else if(mode==='research'){
+        content.innerHTML = `<h3 style=\"margin:0 0 6px 0\">Join as Researcher</h3>
+          <p class=\"small\">Send us a short note describing your research interest and we'll invite you to early access when dashboard is ready.</p>
+          <textarea id=\"researchNote\" style=\"width:100%;height:120px;border-radius:8px;padding:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit\"></textarea>`;
+      }
+      modal.style.display='flex';
+    }
+    function closeModal(){document.getElementById('modal').style.display='none'}
+
+    function sendContact(){
+      const name=document.getElementById('contactName').value||'Anonymous';
+      const email=document.getElementById('contactEmail').value||'';
+      alert('Thanks '+name+"! We'll contact you at " + email + '. (This is a demo placeholder)');
+    }
+
+    // Placeholder: show instructions to developer in console
+    console.log('\nEarth Lens — Developer notes:\n- Frontend is static. For live processing, wire uploads to an external worker (POST /api/jobs).\n- Worker should return status and result URLs.\n- Security: use signed webhooks and presigned storage URLs.\n- See Docs section on this page for code snippets.\n');
+  </script>
+</body>
+</html>
